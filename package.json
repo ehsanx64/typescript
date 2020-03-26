@@ -1,0 +1,22 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "TypeScript Samples and Sources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehsanx64/typescript.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Ehsan Mohammadi <ehsanx64@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ehsanx64/typescript/issues"
+  },
+  "homepage": "https://github.com/ehsanx64/typescript#readme"
+}
