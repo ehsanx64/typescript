@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ehsanx64/typescript/issues"
   },
-  "homepage": "https://github.com/ehsanx64/typescript#readme"
+  "homepage": "https://github.com/ehsanx64/typescript#readme",
+  "dependencies": {
+    "typescript": "^3.8.2"
+  }
 }
