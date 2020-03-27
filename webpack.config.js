@@ -9,6 +9,13 @@ module.exports = {
         path: path.resolve(__dirname, 'public')
     },
 
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true,
+        port: 8000,
+        liveReload: true
+    },
+
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
