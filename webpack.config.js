@@ -13,7 +13,8 @@ module.exports = {
         contentBase: path.join(__dirname, 'public'),
         compress: true,
         port: 8000,
-        liveReload: true
+        liveReload: true,
+        open: true
     },
 
     // Enable sourcemaps for debugging webpack's output.
