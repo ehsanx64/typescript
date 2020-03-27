@@ -1,8 +1,12 @@
 {
     "compilerOptions": {
+        "allowJs": true,
         "target": "ES5",
-        "module": "commonjs",
-        "outDir": "out",
-        "sourceMap": true
+        "module": "es6",
+        "outDir": "./public/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        // Uncomment for React.js projects
+        // "jsx": "react"
     }
 }
