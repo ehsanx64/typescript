@@ -1,7 +1,7 @@
 import './app.css';
 import * as $ from 'jquery';
 import * as HelloWorld from './HelloWorld'
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 
 import { CounterReducer,    // Reducer
     increment, decrement,   // Action creators 
@@ -19,7 +19,8 @@ $(() => {
     
 
     // Create store
-    let store = createStore(CounterReducer);
+    const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    let store = createStore(CounterReducer, composeEnhancers());
 
     // Subscribe to store changes
     store.subscribe(() => {
