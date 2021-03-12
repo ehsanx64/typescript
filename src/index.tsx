@@ -3,7 +3,8 @@ import * as $ from 'jquery';
 import * as HelloWorld from './HelloWorld'
 import { createStore, compose } from 'redux';
 
-import { CounterReducer,    // Reducer
+import { getStore } from './redux/Store';
+import { 
     increment, decrement,   // Action creators 
     selectCounterValue      // Selector
 } from './redux/Counter';
@@ -16,11 +17,9 @@ $(() => {
     $('#get-started-button').on('click', () => {
         alert(HelloWorld.getMessage());
     });
-    
-
-    // Create store
-    const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    let store = createStore(CounterReducer, composeEnhancers());
+        
+    // Get the store
+    let store = getStore();
 
     // Subscribe to store changes
     store.subscribe(() => {
