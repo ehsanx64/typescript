@@ -21,6 +21,17 @@ $(() => {
     // Get the store
     let store = getStore();
 
+    // Define some helpers
+    // For increment
+    const counterInc = () => {
+        store.dispatch(increment());
+    };
+
+    // For decrement
+    const counterDec = () => {
+        store.dispatch(decrement());
+    };
+
     // Subscribe to store changes
     store.subscribe(() => {
         const value = selectCounterValue(store.getState());
@@ -28,10 +39,13 @@ $(() => {
     });
 
     // Dispatch some actions (by getting them from action creators)
-    store.dispatch(increment());
-    store.dispatch(increment());
-    store.dispatch(decrement());
-    store.dispatch(decrement());
+    counterInc();
+    counterInc();
+    counterInc();
+    counterInc();
+    counterInc();
+    counterDec();
+    counterDec();
 });
 
 console.log('Bootstrap finished.');
