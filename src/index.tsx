@@ -1,40 +1,37 @@
 import './app.css';
 import * as $ from 'jquery';
 import * as HelloWorld from './HelloWorld'
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+
+import { CounterReducer,    // Reducer
+    increment, decrement,   // Action creators 
+    selectCounterValue      // Selector
+} from './redux/Counter';
 
 console.log('Application bootstraping...');
 
 $(() => {
-    console.log('Application loading...');
+    console.log('Application loaded...');
 
     $('#get-started-button').on('click', () => {
         alert(HelloWorld.getMessage());
-    })
+    });
+    
 
-    interface ReduxAction {
-        type: string,
-        payload: object
-    }
+    // Create store
+    let store = createStore(CounterReducer);
 
-    function counter(state = 0, action: ReduxAction) {
-        switch (action.type) {
-        case 'INCREMENT':
-            return state + 1
-        case 'DECREMENT':
-            return state - 1
-        default:
-            return state
-        }
-    }
+    // Subscribe to store changes
+    store.subscribe(() => {
+        const value = selectCounterValue(store.getState());
+        console.log(`Current counter value: ${value}`);
+    });
 
-    let store = createStore(counter)
-    store.subscribe(() => console.log(store.getState()))
-    store.dispatch({type: 'INCREMENT'})
-    store.dispatch({type: 'INCREMENT'})
-    store.dispatch({type: 'INCREMENT'})
-    store.dispatch({type: 'DECREMENT'})
-    store.dispatch({type: 'DECREMENT'})
+    // Dispatch some actions (by getting them from action creators)
+    store.dispatch(increment());
+    store.dispatch(increment());
+    store.dispatch(decrement());
+    store.dispatch(decrement());
 });
 
 console.log('Bootstrap finished.');
